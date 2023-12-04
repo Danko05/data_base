@@ -16,18 +16,18 @@ class ViewerDAO(GeneralDAO):
     """
     _domain_type = Viewer
 
-    def find_by_name(self, name: str) -> List[object]:
-        """
-        Gets Client objects from database table by field name.
-        :param name: name value
-        :return: search objects
-        """
-        return self._session.query(Viewer).filter(Viewer.name == name).order_by(Viewer.name).all()
-
-    def find_by_number(self, number: int) -> List[object]:
-        """
-        Gets Client objects from database table by field 'number'.
-        :param number: number value
-        :return: search objects
-        """
-        return self._session.query(Viewer).filter(Viewer.number == number).order_by(Viewer.number.desc()).all()
+    # def find_by_name(self, name: str) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field name.
+    #     :param name: name value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Viewer).filter(Viewer.name == name).order_by(Viewer.name).all()
+    #
+    # def find_by_number(self, number: int) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field 'number'.
+    #     :param number: number value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Viewer).filter(Viewer.number == number).order_by(Viewer.number.desc()).all()

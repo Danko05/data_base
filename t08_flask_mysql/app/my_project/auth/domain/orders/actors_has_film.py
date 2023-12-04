@@ -19,7 +19,7 @@ class Actors_has_film(db.Model, IDto):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     actors_id = db.Column(db.Integer, db.ForeignKey('actors.id'))
-    film_id = db.Column(db.Integer, db.ForeignKey('film.id'))
+    film_id = db.Column(db.Integer, db.ForeignKey('film.id'), )
 
 
 
@@ -41,6 +41,8 @@ class Actors_has_film(db.Model, IDto):
             "id": self.id,
             "actors_id": self.actors_id,
             "film_id": self.film_id,
+            "actor_name": self.actor.name,
+            "film_name": self.film.name,
 
 
             # "client_type_id": self.client_type_id or "",

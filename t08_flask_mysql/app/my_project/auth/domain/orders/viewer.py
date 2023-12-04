@@ -21,6 +21,8 @@ class Viewer(db.Model, IDto):
     name = db.Column(db.String(45))
     age = db.Column(db.String(45))
     reviews = db.relationship("Review", backref='film')
+    films_association = db.relationship("Film_has_viewer", backref="viewer")
+    
 
 
 
@@ -38,11 +40,14 @@ class Viewer(db.Model, IDto):
         :return: DTO object as dictionary
         """
         review_list = [reviews.put_into_dto() for reviews in self.reviews]
+        review_films = [review_films.put_into_dto() for review_films in self.films_association]
+
         return {
             "id": self.id,
             "name": self.name,
             "age": self.age,
             "review_list": review_list,
+            "review_films": review_films,
 
             # "client_type_id": self.client_type_id or "",
             # "client_type": self.client_type.type if self.client_type is not None else "",
@@ -59,5 +64,6 @@ class Viewer(db.Model, IDto):
             name=dto_dict.get("name"),
             age=dto_dict.get("age"),
             review_list=dto_dict.get("review_list"),
+            review_films=dto_dict.get("review_films"),
         )
         return obj

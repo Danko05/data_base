@@ -38,7 +38,6 @@ class Actors(db.Model, IDto):
         Puts domain object into DTO without relationship
         :return: DTO object as dictionary
         """
-        # pilot_flights = [Flight.put_into_dto(pilot_flight.flight) for pilot_flight in self.flights_association]
         actor_films = [actors_film.put_into_dto() for actors_film in self.films_association]
         return {
             "id": self.id,
@@ -63,6 +62,6 @@ class Actors(db.Model, IDto):
             sex=dto_dict.get("sex"),
             salary=dto_dict.get("salary"),
             name=dto_dict.get("name"),
-            actor_films=dto_dict.get("actor_films"),
+
         )
         return obj

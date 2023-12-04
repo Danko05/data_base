@@ -16,18 +16,18 @@ class Actors_has_filmDAO(GeneralDAO):
     """
     _domain_type = Actors_has_film
 
-    def find_by_name(self, name: str) -> List[object]:
-        """
-        Gets Client objects from database table by field name.
-        :param name: name value
-        :return: search objects
-        """
-        return self._session.query(Actors_has_film).filter(Actors_has_film.name == name).order_by(Actors_has_film.name).all()
-
-    def find_by_number(self, number: int) -> List[object]:
-        """
-        Gets Client objects from database table by field 'number'.
-        :param number: number value
-        :return: search objects
-        """
-        return self._session.query(Actors_has_film).filter(Actors_has_film.number == number).order_by(Actors_has_film.number.desc()).all()
+    # def find_by_name(self, name: str) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field name.
+    #     :param name: name value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Actors_has_film).filter(Actors_has_film.name == name).order_by(Actors_has_film.name).all()
+    #
+    # def find_by_number(self, number: int) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field 'number'.
+    #     :param number: number value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Actors_has_film).filter(Actors_has_film.number == number).order_by(Actors_has_film.number.desc()).all()

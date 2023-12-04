@@ -22,6 +22,7 @@ class Cinema(db.Model, IDto):
     ticket_price = db.Column(db.Integer)
     max_seats = db.Column(db.Integer)
     midlle_age_viewer = db.Column(db.Float)
+    films_association = db.relationship("Film_has_cinema", backref="cinema")
 
 
 
@@ -37,12 +38,14 @@ class Cinema(db.Model, IDto):
         Puts domain object into DTO without relationship
         :return: DTO object as dictionary
         """
+        cinema_films = [cinema_films.put_into_dto() for cinema_films in self.films_association]
         return {
             "id": self.id,
             "name": self.name,
             "ticket_price": self.ticket_price,
             "max_seats": self.max_seats,
             "midlle_age_viewer": self.midlle_age_viewer,
+            "cinema_films": cinema_films,
             # "client_type_id": self.client_type_id or "",
             # "client_type": self.client_type.type if self.client_type is not None else "",
         }
@@ -59,5 +62,6 @@ class Cinema(db.Model, IDto):
             ticket_price=dto_dict.get("ticket_price"),
             max_seats=dto_dict.get("max_seats"),
             midlle_age_viewer=dto_dict.get("midlle_age_viewer"),
+            cinema_films=dto_dict.get("cinema_films"),
         )
         return obj

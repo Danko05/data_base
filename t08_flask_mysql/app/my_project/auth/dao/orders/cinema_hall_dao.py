@@ -7,12 +7,11 @@ apavelchak@gmail.com
 from typing import List
 
 from t08_flask_mysql.app.my_project.auth.dao.general_dao import GeneralDAO
-from t08_flask_mysql.app.my_project.auth.domain import Film
+from t08_flask_mysql.app.my_project.auth.domain import Cinema_hall
 
 
-class FilmDAO(GeneralDAO):
+class Cinema_hallDAO(GeneralDAO):
     """
     Realisation of Client data access layer.
     """
-    _domain_type = Film
-
+    _domain_type = Cinema_hall

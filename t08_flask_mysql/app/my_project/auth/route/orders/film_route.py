@@ -56,7 +56,7 @@ def update_film(film_id: int) -> Response:
     return make_response("Film updated", HTTPStatus.OK)
 
 
-@film_bp.patch('/<int:facts_id>')
+@film_bp.patch('/<int:film_id>')
 def patch_film(film_id: int) -> Response:
     """
     Patches client by ID.
@@ -74,4 +74,4 @@ def delete_film(film_id: int) -> Response:
     :return: Response object
     """
     film_controller.delete(film_id)
-    return make_response("Facts deleted", HTTPStatus.OK)
+    return make_response("Film deleted", HTTPStatus.OK)
