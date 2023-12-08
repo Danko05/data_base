@@ -13,3 +13,7 @@ class RatingController(GeneralController):
     Realisation of Client controller.
     """
     _service = rating_service
+
+    def CallGetMaxRating(self):
+        result = self._service.CallGetMaxRating()
+        return result

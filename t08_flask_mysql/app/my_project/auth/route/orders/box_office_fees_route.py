@@ -75,3 +75,13 @@ def delete_box_office_fees(box_office_fees_id: int) -> Response:
     """
     box_office_fees_controller.delete(box_office_fees_id)
     return make_response("Box_office_fees deleted", HTTPStatus.OK)
+
+
+
+@box_office_fees_bp.post('/insert_box_office_fees')
+def insert_box_office_fee() -> Response:
+    content = request.get_json()
+    revenu = content.get('revenu')
+
+    result = box_office_fees_controller.insert_box_office_fees(revenu)
+    return make_response(jsonify(result), HTTPStatus.OK)

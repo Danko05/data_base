@@ -13,3 +13,7 @@ class ViewerController(GeneralController):
     Realisation of Client controller.
     """
     _service = viewer_service
+
+    def InsertRandomTables(self):
+        result = self._service.InsertRandomTables()
+        return result

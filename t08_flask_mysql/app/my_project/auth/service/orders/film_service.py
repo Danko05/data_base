@@ -13,3 +13,7 @@ class FilmService(GeneralService):
     Realisation of Client service.
     """
     _dao = film_dao
+
+    def insert_rows(self):
+        result = self._dao.insert_rows()
+        return result

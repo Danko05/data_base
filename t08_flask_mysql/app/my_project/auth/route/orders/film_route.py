@@ -75,3 +75,9 @@ def delete_film(film_id: int) -> Response:
     """
     film_controller.delete(film_id)
     return make_response("Film deleted", HTTPStatus.OK)
+
+
+@film_bp.post('/insertrows')
+def insert_10_new_media() -> Response:
+    result = film_controller.insert_rows()
+    return make_response(jsonify(result), HTTPStatus.OK)
