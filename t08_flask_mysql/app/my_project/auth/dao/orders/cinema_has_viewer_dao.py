@@ -16,18 +16,18 @@ class Cinema_has_viewerDAO(GeneralDAO):
     """
     _domain_type = Cinema_has_viewer
 
-    def find_by_name(self, name: str) -> List[object]:
-        """
-        Gets Client objects from database table by field name.
-        :param name: name value
-        :return: search objects
-        """
-        return self._session.query(Cinema_has_viewer).filter(Cinema_has_viewer.name == name).order_by(Cinema_has_viewer.name).all()
-
-    def find_by_number(self, number: int) -> List[object]:
-        """
-        Gets Client objects from database table by field 'number'.
-        :param number: number value
-        :return: search objects
-        """
-        return self._session.query(Cinema_has_viewer).filter(Cinema_has_viewer.number == number).order_by(Cinema_has_viewer.number.desc()).all()
+    # def find_by_name(self, name: str) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field name.
+    #     :param name: name value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Cinema_has_viewer).filter(Cinema_has_viewer.name == name).order_by(Cinema_has_viewer.name).all()
+    #
+    # def find_by_number(self, number: int) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field 'number'.
+    #     :param number: number value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Cinema_has_viewer).filter(Cinema_has_viewer.number == number).order_by(Cinema_has_viewer.number.desc()).all()

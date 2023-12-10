@@ -75,3 +75,12 @@ def delete_actors_has_film(actors_has_film_id: int) -> Response:
     """
     actors_has_film_controller.delete(actors_has_film_id)
     return make_response("cinema_has_viewer deleted", HTTPStatus.OK)
+
+@actors_has_film_bp.post('/insert-into-actor-film')
+def insert_into_actor_film() -> Response:
+    content = request.get_json()
+    actors_name = content.get('actors_name')
+    film_name = content.get('film_name')
+
+    result = actors_has_film_controller.insert_into_actor_film(actors_name,film_name)
+    return make_response(jsonify(result), HTTPStatus.OK)

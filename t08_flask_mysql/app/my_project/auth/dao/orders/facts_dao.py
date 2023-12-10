@@ -16,18 +16,18 @@ class FactsDAO(GeneralDAO):
     """
     _domain_type = Facts
 
-    def find_by_name(self, name: str) -> List[object]:
-        """
-        Gets Client objects from database table by field name.
-        :param name: name value
-        :return: search objects
-        """
-        return self._session.query(Facts).filter(Facts.name == name).order_by(Facts.name).all()
-
-    def find_by_number(self, number: int) -> List[object]:
-        """
-        Gets Client objects from database table by field 'number'.
-        :param number: number value
-        :return: search objects
-        """
-        return self._session.query(Facts).filter(Facts.number == number).order_by(Facts.number.desc()).all()
+    # def find_by_name(self, name: str) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field name.
+    #     :param name: name value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Facts).filter(Facts.name == name).order_by(Facts.name).all()
+    #
+    # def find_by_number(self, number: int) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field 'number'.
+    #     :param number: number value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Facts).filter(Facts.number == number).order_by(Facts.number.desc()).all()

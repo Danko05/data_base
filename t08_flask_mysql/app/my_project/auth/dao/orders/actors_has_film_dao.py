@@ -6,6 +6,8 @@ apavelchak@gmail.com
 
 from typing import List
 
+from sqlalchemy import text
+
 from t08_flask_mysql.app.my_project.auth.dao.general_dao import GeneralDAO
 from t08_flask_mysql.app.my_project.auth.domain import Actors_has_film
 
@@ -16,18 +18,24 @@ class Actors_has_filmDAO(GeneralDAO):
     """
     _domain_type = Actors_has_film
 
-    def find_by_name(self, name: str) -> List[object]:
-        """
-        Gets Client objects from database table by field name.
-        :param name: name value
-        :return: search objects
-        """
-        return self._session.query(Actors_has_film).filter(Actors_has_film.name == name).order_by(Actors_has_film.name).all()
-
-    def find_by_number(self, number: int) -> List[object]:
-        """
-        Gets Client objects from database table by field 'number'.
-        :param number: number value
-        :return: search objects
-        """
-        return self._session.query(Actors_has_film).filter(Actors_has_film.number == number).order_by(Actors_has_film.number.desc()).all()
+    # def find_by_name(self, name: str) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field name.
+    #     :param name: name value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Actors_has_film).filter(Actors_has_film.name == name).order_by(Actors_has_film.name).all()
+    #
+    # def find_by_number(self, number: int) -> List[object]:
+    #     """
+    #     Gets Client objects from database table by field 'number'.
+    #     :param number: number value
+    #     :return: search objects
+    #     """
+    #     return self._session.query(Actors_has_film).filter(Actors_has_film.number == number).order_by(Actors_has_film.number.desc()).all()
+    def insert_into_actor_film(self, actors_name, film_name):
+        self._session.execute(text(
+            f"CALL InsertIntoActorFilm('{actors_name}','{film_name}')",
+        ))
+        self._session.commit()
+        return "Success"

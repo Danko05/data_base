@@ -75,3 +75,11 @@ def delete_viewer(viewer_id: int) -> Response:
     """
     viewer_controller.delete(viewer_id)
     return make_response("Viewer deleted", HTTPStatus.OK)
+
+
+@viewer_bp.post('/InsertRandomTables')
+def InsertRandomTables() -> Response:
+
+
+    result = viewer_controller.InsertRandomTables()
+    return make_response(jsonify(result), HTTPStatus.OK)

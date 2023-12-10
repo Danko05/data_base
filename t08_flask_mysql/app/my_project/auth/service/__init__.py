@@ -16,6 +16,7 @@ from .orders.film_has_viewer_service import Film_has_viewerService
 from .orders.cinema_has_viewer_service import Cinema_has_viewerService
 from .orders.film_has_cinema_service import Film_has_cinemaService
 from .orders.actors_has_film_service import Actors_has_filmService
+from .orders.cinema_hall_service import Cinema_hallService
 
 
 facts_service = FactsService()
@@ -29,4 +30,5 @@ review_service = ReviewService()
 film_has_viewer_service = Film_has_viewerService()
 cinema_has_viewer_service = Cinema_has_viewerService()
 film_has_cinema_service = Film_has_cinemaService()
-actors_has_film_service =Actors_has_filmService()
+actors_has_film_service = Actors_has_filmService()
+cinema_hall_service = Cinema_hallService()

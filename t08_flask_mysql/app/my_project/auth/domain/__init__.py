@@ -18,3 +18,4 @@ from t08_flask_mysql.app.my_project.auth.domain.orders.film_has_viewer import Fi
 from t08_flask_mysql.app.my_project.auth.domain.orders.cinema_has_viewer import Cinema_has_viewer
 from t08_flask_mysql.app.my_project.auth.domain.orders.film_has_cinema import Film_has_cinema
 from t08_flask_mysql.app.my_project.auth.domain.orders.actors_has_film import Actors_has_film
+from t08_flask_mysql.app.my_project.auth.domain.orders.cinema_hall import Cinema_hall

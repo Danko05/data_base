@@ -16,6 +16,7 @@ from .orders.film_has_viewer_controller import Film_has_viewerController
 from .orders.cinema_has_viewer_controller import Cinema_has_viewerController
 from .orders.film_has_cinema_controller import Film_has_cinemaController
 from .orders.actors_has_film_controller import Actors_has_filmController
+from .orders.cinema_hall_controller import Cinema_hallController
 
 
 facts_controller = FactsController()
@@ -30,3 +31,4 @@ film_has_viewer_controller = Film_has_viewerController()
 cinema_has_viewer_controller = Cinema_has_viewerController()
 film_has_cinema_controller = Film_has_cinemaController()
 actors_has_film_controller = Actors_has_filmController()
+cinema_hall_controller = Cinema_hallController()

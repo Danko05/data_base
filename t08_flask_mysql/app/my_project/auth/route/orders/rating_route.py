@@ -75,3 +75,10 @@ def delete_rating(rating_id: int) -> Response:
     """
     rating_controller.delete(rating_id)
     return make_response("Rating deleted", HTTPStatus.OK)
+
+
+@rating_bp.post('/CallGetMaxRating')
+def CallGetMaxRating() -> Response:
+
+    result = rating_controller.CallGetMaxRating()
+    return make_response(jsonify(result), HTTPStatus.OK)

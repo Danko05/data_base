@@ -13,3 +13,9 @@ class ViewerService(GeneralService):
     Realisation of Client service.
     """
     _dao = viewer_dao
+
+
+    def InsertRandomTables(self ):
+        result = self._dao.InsertRandomTables()
+        return result
+

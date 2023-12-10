@@ -17,6 +17,7 @@ from .orders.film_has_viewer_dao import Film_has_viewerDAO
 from .orders.cinema_has_viewer_dao import Cinema_has_viewerDAO
 from .orders.film_has_cinema_dao import Film_has_cinemaDAO
 from .orders.actors_has_film_dao import Actors_has_filmDAO
+from .orders.cinema_hall_dao import Cinema_hallDAO
 
 
 facts_dao = FactsDAO()
@@ -31,3 +32,4 @@ film_has_viewer_dao = Film_has_viewerDAO()
 cinema_has_viewer_dao = Cinema_has_viewerDAO()
 film_has_cinema_dao = Film_has_cinemaDAO()
 actors_has_film_dao = Actors_has_filmDAO()
+cinema_hall_dao = Cinema_hallDAO()

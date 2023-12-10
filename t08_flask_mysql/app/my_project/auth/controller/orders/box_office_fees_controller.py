@@ -13,3 +13,7 @@ class Box_office_feesController(GeneralController):
     Realisation of Client controller.
     """
     _service = box_office_fees_service
+
+    def insert_box_office_fees(self, revenu):
+        result = self._service.insert_box_office_fees(revenu)
+        return result

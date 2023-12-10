@@ -13,3 +13,7 @@ class RatingService(GeneralService):
     Realisation of Client service.
     """
     _dao = rating_dao
+
+    def CallGetMaxRating(self):
+        result = self._dao.CallGetMaxRating()
+        return result

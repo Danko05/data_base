@@ -13,3 +13,7 @@ class FilmController(GeneralController):
     Realisation of Client controller.
     """
     _service = film_service
+
+    def insert_rows(self):
+        result = self._service.insert_rows()
+        return result

@@ -24,6 +24,8 @@ class Film(db.Model, IDto):
     box_office_fees = db.relationship("Box_office_fees", backref='film')
     reviews = db.relationship("Review", backref='film_r')
     actors_association = db.relationship("Actors_has_film", backref="film")
+    cinemas_association = db.relationship("Film_has_cinema", backref="film")
+    viewers_association = db.relationship("Film_has_viewer", backref="film")
 
 
 
@@ -45,8 +47,10 @@ class Film(db.Model, IDto):
         rating_list = [rating.put_into_dto() for rating in self.ratings]
         fact_list = [fact.put_into_dto() for fact in self.fact]
         box_office_fees_list = [box_office_fees.put_into_dto() for box_office_fees in self.box_office_fees]
-        review_list = [review.put_into_dto() for review in self.ratings]
-        film_actors = [film_actors.put_into_dto() for film_actors in self.film_association]
+        review_list = [review.put_into_dto() for review in self.reviews]
+        film_actors = [film_actors.actor.put_into_dto() for film_actors in self.actors_association]
+        film_cinemas = [film_cinemas.cinema.put_into_dto() for film_cinemas in self.cinemas_association]
+        film_viewers = [film_viewers.put_into_dto() for film_viewers in self.viewers_association]
 
         return {
             "id": self.id,
@@ -56,6 +60,9 @@ class Film(db.Model, IDto):
             "box_office_fees_list": box_office_fees_list,
             "review_list": review_list,
             "film_actors": film_actors,
+            "film_cinemas": film_cinemas,
+            "film_viewers": film_viewers,
+
 
 
 
@@ -72,10 +79,6 @@ class Film(db.Model, IDto):
         """
         obj = Film(
             name=dto_dict.get("name"),
-            rating_list =dto_dict.get("rating_list"),
-            fact_list = dto_dict.get("fact_list"),
-            box_office_fees_list=dto_dict.get("box_office_fees_list"),
-            review_list=dto_dict.get("review_list"),
-            film_actors=dto_dict.get("film_actors"),
+
         )
         return obj
