@@ -6,6 +6,8 @@ apavelchak@gmail.com
 
 from typing import List
 
+from sqlalchemy import text
+
 from t08_flask_mysql.app.my_project.auth.dao.general_dao import GeneralDAO
 from t08_flask_mysql.app.my_project.auth.domain import Actors_has_film
 
@@ -31,3 +33,9 @@ class Actors_has_filmDAO(GeneralDAO):
     #     :return: search objects
     #     """
     #     return self._session.query(Actors_has_film).filter(Actors_has_film.number == number).order_by(Actors_has_film.number.desc()).all()
+    def insert_into_actor_film(self, actors_name, film_name):
+        self._session.execute(text(
+            f"CALL InsertIntoActorFilm('{actors_name}','{film_name}')",
+        ))
+        self._session.commit()
+        return "Success"

@@ -20,5 +20,5 @@ class RatingDAO(GeneralDAO):
 
     def CallGetMaxRating(self):
         result = self._session.execute(text(
-            f"Call GetMaxRating()",))
+            f"Call CallGetMaxRating()",))
         return result.scalar()

@@ -13,3 +13,6 @@ class Actors_has_filmService(GeneralService):
     Realisation of Client service.
     """
     _dao = actors_has_film_dao
+    def insert_into_actor_film(self, actors_name, film_name):
+        result = self._dao.insert_into_actor_film(actors_name,film_name)
+        return result
